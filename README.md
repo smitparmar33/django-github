@@ -1,113 +1,91 @@
-Welcome to the AWS CodeStar sample web application
-==================================================
+# Django-Poll-App
 
-This sample code helps get you started with a simple Django web application
-deployed by AWS Elastic Beanstalk and AWS CloudFormation.
+Django poll app is a full featured polling app. You have to register in this app to show the polls and to vote. If you already voted you can not vote again. Only the owner of a poll can add poll , edit poll, update poll, delete poll , add choice, update choice, delete choice and end a poll. If a poll is ended it can not be voted. Ended poll only shows user the final result of the poll. There is a search option for polls. Also user can filter polls by name, publish date, and by number of voted. Pagination will work even after applying filter.
 
-What's Here
------------
+<h1>Getting Started</h1>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
 
-This sample includes:
+<h2>Prerequisites</h2>
+<code>python== 3.5 or up and django==2.0 or up</code>
 
-* README.md - this file
-* ebdjango/ - this directory contains your Django project files. Note that this
-  directory contains a Django config file (settings.py) that includes a pre-defined
-  SECRET_KEY. Before running in a production environment, you should replace this
-  application key with one you generate
-  (see https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/#secret-key for details)
-* helloworld/ - this directory contains your Django application files
-* manage.py - this Python script is used to start your Django web application
-* .ebextensions/ - this directory contains the Django configuration file that
-  allows AWS Elastic Beanstalk to deploy your Django application
-* buildspec.yml - this file is used by AWS CodeBuild to build and test
-  your application
-* requirements.txt - this file is used to install Python dependencies needed by
-  the Django application
-* template.yml - this file contains the description of AWS resources used by AWS
-  CloudFormation to deploy your infrastructure
-* template-configuration.json - this file contains the project ARN with placeholders used for tagging resources with the project ID
+<h2>Installing</h2>
+<pre>open terminal and type</pre>
+<code>git clone https://github.com/devmahmud/Django-poll-app.git</code><br><br>
 
-Getting Started
----------------
+<h4>or simply download using the url below</h4>
+<code>https://github.com/devmahmud/Django-poll-app.git</code><br>
 
-These directions assume you want to develop on your local computer, and not
-from the Amazon EC2 instance itself. If you're on the Amazon EC2 instance, the
-virtual environment is already set up for you, and you can start working on the
-code.
+<h2>To migrate the database open terminal in project directory and type</h2>
+<code>python manage.py makemigrations</code><br>
+<code>python manage.py migrate</code>
 
-To work on the sample code, you'll need to clone your project's repository to your
-local computer. If you haven't, do that first. You can find instructions in the AWS CodeStar user guide at https://docs.aws.amazon.com/codestar/latest/userguide/getting-started.html#clone-repo.
+<h2>To use admin panel you need to create superuser using this command </h2>
+<code>python manage.py createsuperuser</code>
 
-1. Create a Python virtual environment for your Django project. This virtual
-   environment allows you to isolate this project and install any packages you
-   need without affecting the system Python installation. At the terminal, type
-   the following command:
+<h2>To Create some dummy text data for your app follow the step below:</h2>
+<code>pip install faker</code>
+<code>python manage.py shell</code>
+<code>import seeder</code>
+<code>seeder.seed_all(30)</code>
+<p>Here 30 is a number of entry. You can use it as your own</p>
 
-        $ python3 -m venv ./venv
+<h2> To run the program in local server use the following command </h2>
+<code>python manage.py runserver</code>
 
-2. Activate the virtual environment:
+<p>Then go to http://127.0.0.1:8000 in your browser</p>
 
-        $ source ./venv/bin/activate
+<h2>Project snapshot</h2>
+<h3>Home page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409444-0e40a600-1b8c-11e9-9ab0-27d759db8973.jpg" width="100%"</img> 
+</div>
 
-3. Install Python dependencies for this project:
+<h3>Login Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409509-36c8a000-1b8c-11e9-845a-65b49262aa53.png" width="100%"</img> 
+</div>
 
-        $ pip install -r requirements.txt
+<h3>Registration Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409562-5cee4000-1b8c-11e9-82f6-1aa2df159528.png" width="100%"</img> 
+</div>
 
-4. (Optional) Enable Django's debug mode for development:
+<h3>Poll List Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409728-d423d400-1b8c-11e9-8903-4c08ba64512e.png" width="100%"</img> 
+</div>
 
-        $ export DJANGO_DEBUG=True
+<h3>Poll Add Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409796-fe759180-1b8c-11e9-941b-c1202956cca4.png" width="100%"</img> 
+</div>
 
-5. Start the Django development server:
+<h3>Polling page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409843-1e0cba00-1b8d-11e9-9109-cceb79a6a623.png" width="100%"</img> 
+</div>
 
-        $ python manage.py runserver
+<h3>Poll Result Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51409932-60ce9200-1b8d-11e9-9c83-c59ba498ca8b.png" width="100%"</img> 
+</div>
 
-6. Open http://127.0.0.1:8000/ in a web browser to view your application.
+<h3>Poll Edit Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51410008-92dff400-1b8d-11e9-8172-c228e4b60e28.png" width="100%"</img> 
+</div>
 
-What Do I Do Next?
-------------------
+<h3>Choice Update Delete Page</h3>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/19981097/51410442-dc7d0e80-1b8e-11e9-8f8e-18e6d7bb70fb.png" width="100%"</img> 
+</div>
 
-Once you have a virtual environment running, you can start making changes to
-the sample Django web application. We suggest making a small change to
-/helloworld/templates/index.html first, so you can see how changes pushed to
-your project's repository are automatically picked up and deployed to the Amazon EC2
-instance by AWS Elastic Beanstalk. (You can watch the progress on your project dashboard.)
-Once you've seen how that works, start developing your own code, and have fun!
+<h2>Author</h2>
+<blockquote>
+  Mahmudul alam<br>
+  Email: expelmahmud@gmail.com
+</blockquote>
 
-To run your tests locally, go to the root directory of the sample code and run
-the `python manage.py test` command, which AWS CodeBuild also runs through
-your `buildspec.yml` file.
-
-To test your new code during the release process, modify the existing tests or
-add tests to the tests directory. AWS CodeBuild will run the tests during the
-build stage of your project pipeline. You can find the test results
-in the AWS CodeBuild console.
-
-Learn more about AWS CodeBuild and how it builds and tests your application here:
-https://docs.aws.amazon.com/codebuild/latest/userguide/concepts.html
-
-Learn more about AWS CodeStar by reading the user guide.  Ask questions or make
-suggestions on our forum.
-
-User Guide: https://docs.aws.amazon.com/codestar/latest/userguide/welcome.html
-Forum: https://forums.aws.amazon.com/forum.jspa?forumID=248
-
-How Do I Add Template Resources to My Project?
-------------------
-
-To add AWS resources to your project, you'll need to edit the `template.yml`
-file in your project's repository. You may also need to modify permissions for
-your project's worker roles. After you push the template change, AWS CodeStar
-and AWS CloudFormation provision the resources for you.
-
-See the AWS CodeStar user guide for instructions to modify your template:
-https://docs.aws.amazon.com/codestar/latest/userguide/how-to-change-project.html#customize-project-template
-
-What Should I Do Before Running My Project in Production?
-------------------
-
-AWS recommends you review the security best practices recommended by the framework
-author of your selected sample application before running it in production. You
-should also regularly review and apply any available patches or associated security
-advisories for dependencies used within your application.
-
-Best Practices: https://docs.aws.amazon.com/codestar/latest/userguide/best-practices.html?icmpid=docs_acs_rm_sec
+<div align="center">
+    <h3>========Thank You !!!=========</h3>
+</div>
